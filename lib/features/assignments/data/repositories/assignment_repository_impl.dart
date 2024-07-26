@@ -6,14 +6,14 @@ import 'package:to_do_list_clean_architecture/features/assignments/domain/entiti
 import 'package:to_do_list_clean_architecture/features/assignments/domain/repositories/assignment_repository.dart';
 
 class AssignmentRepositoryImpl implements AssignmentRepository {
-  final AssignmentRemoteDataSource assignmentRemoteDataSource;
+  final AssignmentRemoteDataSource remoteDataSource;
 
-  AssignmentRepositoryImpl({required this.assignmentRemoteDataSource});
+  AssignmentRepositoryImpl({required this.remoteDataSource});
 
   @override
   Future<Either<Failure, List<Assignment>>> getAllAssignments() async {
       try {
-        final response = await assignmentRemoteDataSource.getAllAssignments();
+        final response = await remoteDataSource.getAllAssignments();
         return right(response);
       }catch(e){
         if (e is DioException) {
