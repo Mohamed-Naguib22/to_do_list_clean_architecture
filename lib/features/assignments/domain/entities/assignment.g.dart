@@ -20,7 +20,7 @@ class AssignmentAdapter extends TypeAdapter<Assignment> {
       id: fields[0] as String,
       name: fields[1] as String,
       description: fields[2] as String,
-      dateCreated: fields[3] as DateTime,
+      dateCreated: fields[3] as String,
     );
   }
 

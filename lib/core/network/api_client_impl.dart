@@ -17,6 +17,14 @@ class DioClientImpl implements ApiClient {
         headers: headers ?? {'Content-Type': 'application/json'},
       ),
     );
+    // dio.interceptors.add(InterceptorsWrapper(
+    //   onRequest: (options, handler) async {
+    //     handler.next(options);
+    //   },
+    //   onError: (DioException e, handler) async {
+    //     return handler.next(e);
+    //   },
+    // ));
   }
 
   @override

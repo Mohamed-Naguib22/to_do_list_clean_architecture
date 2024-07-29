@@ -6,15 +6,17 @@ import 'package:to_do_list_clean_architecture/features/assignments/presentation/
 class AssignmentCubit extends Cubit<AssignmentState> {
   final GetAllAssignmentsUseCase getAllAssignmentsUseCase;
 
-  AssignmentCubit({required this.getAllAssignmentsUseCase}) : super(const AssignmentState());
+  AssignmentCubit({required this.getAllAssignmentsUseCase})
+      : super(const AssignmentState());
 
-    void getAllServicesById(String studentId) async {
+  void getAllAssignments() async {
     try {
       emit(state.copyWith(assignmentState: RequestState.loading));
       final response = await getAllAssignmentsUseCase();
       response.fold(
           (l) => emit(state.copyWith(
-              assignmentState: RequestState.error, assignmentMessage: l.message)),
+              assignmentState: RequestState.error,
+              assignmentMessage: l.message)),
           (r) => emit(state.copyWith(
               assignmentState: RequestState.loaded, assignments: r)));
     } catch (_) {}

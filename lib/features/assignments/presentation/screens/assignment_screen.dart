@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_list_clean_architecture/core/utils/enum_states.dart';
 import 'package:to_do_list_clean_architecture/features/assignments/presentation/controllers/assignment_cubit.dart';
@@ -11,6 +10,8 @@ class AssignmentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<AssignmentCubit>().getAllAssignments();
+
     return Scaffold(
       body: BlocBuilder<AssignmentCubit, AssignmentState>(
         builder: (context, state) {
@@ -32,7 +33,10 @@ class AssignmentScreen extends StatelessWidget {
               );
 
             case RequestState.error:
-              return Text(state.assignmentMessage);
+              return Text(
+                state.assignmentMessage,
+                style: TextStyle(color: Colors.black),
+              );
           }
         },
       ),

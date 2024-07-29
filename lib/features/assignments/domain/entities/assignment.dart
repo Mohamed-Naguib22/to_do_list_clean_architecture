@@ -4,7 +4,6 @@ part 'assignment.g.dart';
 
 @HiveType(typeId: 0)
 class Assignment extends Equatable {
-
   @HiveField(0)
   final String id;
 
@@ -15,20 +14,19 @@ class Assignment extends Equatable {
   final String description;
 
   @HiveField(3)
-  final DateTime dateCreated;
+  final String dateCreated;
 
-  const Assignment({
-    required this.id, 
-    required this.name, 
-    required this.description, 
-    required this.dateCreated
-  });
+  const Assignment(
+      {required this.id,
+      required this.name,
+      required this.description,
+      required this.dateCreated});
 
-    @override
+  @override
   List<Object?> get props => [
-    id,
-    name,
-    description,
-    dateCreated,
-  ];
+        id,
+        name,
+        description,
+        dateCreated,
+      ];
 }

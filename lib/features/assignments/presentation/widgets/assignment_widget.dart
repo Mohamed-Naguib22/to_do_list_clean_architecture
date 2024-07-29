@@ -8,7 +8,7 @@ class AssignmentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(assignment.name),
+      title: Text(assignment.name, style: TextStyle(color: Colors.black)),
       subtitle: Text(assignment.description),
       // trailing: Text(assignment),
     );
