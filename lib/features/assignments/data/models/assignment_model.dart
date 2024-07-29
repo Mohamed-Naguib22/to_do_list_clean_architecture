@@ -13,7 +13,7 @@ class AssignmentModel extends Assignment {
       id: json['id'],
       name: json['name'],
       description: json['description'],
-      dateCreated: DateTimeHelper.formatDateOnly(json['dateCreated']),
+      dateCreated: json['dateCreated'],
     );
   }
 
